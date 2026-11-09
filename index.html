@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doce Agrado | Lanchonete e Doceria</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <header class="cabecalho">
+    <div class="container cabecalho-conteudo">
+
+        <!-- Logo -->
+        <a href="#inicio" class="logo">
+            <img src="imgs/logodoce.jpeg" alt="Doce Agrado">
+        </a>
+
+        <!-- Menu de navegação -->
+        <nav class="menu">
+            <a href="#inicio" class="ativo">
+                <i class="fa-solid fa-house"></i>
+                Início
+            </a>
+
+            <a href="#" >
+                <i class="fa-solid fa-burger"></i>
+                Cardápio
+            </a>
+
+            <a href="#doces">
+                <i class="fa-solid fa-cake-candles"></i>
+                Doces
+            </a>
+
+            <a href="#bebidas">
+                <i class="fa-solid fa-glass-water"></i>
+                Bebidas
+            </a>
+
+            <a href="#sobre">
+                <i class="fa-regular fa-star"></i>
+                Sobre
+            </a>
+
+            <a href="#contato">
+                <i class="fa-solid fa-phone"></i>
+                Contato
+            </a>
+        </nav>
+
+<a href="#"
+   class="resumo-carrinho"
+   onclick="abrirCarrinho(event)">
+
+    <span class="resumo-carrinho-icone">
+        <i class="fa-solid fa-bag-shopping"></i>
+    </span>
+
+    <span class="resumo-carrinho-texto">
+        <strong id="quantidade-cabecalho">0 produtos</strong>
+        <strong id="total-cabecalho">R$ 0,00</strong>
+    </span>
+
+</a>
+
+    </div>
+</header>
+
+<!-- FUNDO ESCURO -->
+<div id="fundo-carrinho" onclick="fecharCarrinho()"></div>
+
+<!-- PAINEL LATERAL -->
+<aside id="painel-carrinho">
+
+    <div class="painel-carrinho-cabecalho">
+        <div>
+            <h2>🛍️ Minha Sacola</h2>
+            <p id="quantidade-painel">0 produtos</p>
+        </div>
+
+        <button type="button" onclick="fecharCarrinho()">✕</button>
+    </div>
+
+    <div id="itens-carrinho">
+        <div class="carrinho-vazio">
+            <span class="sacola-vazia-icone">🛒</span>
+            <h3>Sua sacola está vazia!</h3>
+            <p>Que tal escolher algo delicioso? 💕</p>
+        </div>
+    </div>
+
+    <div class="painel-carrinho-rodape">
+        <div class="carrinho-total">
+            <span>Total dos produtos:</span>
+            <strong id="valor-total">R$ 0,00</strong>
+        </div>
+
+        <button type="button" id="finalizar-pedido" disabled>
+            Finalizar pedido →
+        </button>
+    </div>
+
+</aside>
+
+<section class="banner" id="inicio">
+
+    <div class="container banner-conteudo">
+
+        <div class="banner-texto">
+
+            <h2>
+                Que seu dia seja
+            </h2>
+               <h1>Doce!</h1>
+            <p class="banner-descricao">
+                Lanches, doces e bebidas preparados<br>
+                com muito carinho para você!
+            </p>
+
+            <div class="banner-botoes">
+
+                <a href="#cardapio" class="botao-cardapio">
+                    ☰ Ver Cardápio
+                </a>
+
+                <a
+                    href="https://wa.me/55SEUNUMERO"
+                    class="botao-pedido"
+                    target="_blank"
+                    rel="noopener noreferrer"  
+                >  
+
+                     Pedir pelo WhatsApp
+                </a>
+
+            </div>
+
+            <div class="entrega">
+
+                <span class="moto">🛵</span>
+
+                <div class="entrega-texto">
+                    <strong>Temos Delivery!</strong>
+
+                    <p>
+                        Seu pedido no conforto da sua casa. ♥
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="categorias">
+    <div class="container categorias-lista">
+
+        <a href="#hamburgueres" class="categoria">
+            <img src="./imgs/hamburguers.jpeg" alt="Hambúrguer">
+            <h3>Hambúrgueres ›</h3>
+        </a>
+
+        <a href="#pasteis" class="categoria">
+            <img src="./imgs/Pasteis.jpeg" alt="Pastéis">
+            <h3>Pastéis ›</h3>
+        </a>
+
+        <a href="#doces" class="categoria">
+            <img src="./imgs/Doces.jpeg" alt="Doces">
+            <h3>Doces ›</h3>
+        </a>
+
+        <a href="#bebidas" class="categoria">
+            <img src="./imgs/Bebidas.jpeg" alt="Bebidas">
+            <h3>Bebidas ›</h3>
+        </a>
+
+        <a href="#outros" class="categoria">
+            <img src="./imagens/batata.jpg" alt="Outros lanches">
+            <h3>Outros Lanches ›</h3>
+        </a>
+
+    </div>
+</section>
+
+   
+<section class="beneficios">
+
+    <div class="container beneficios-lista">
+
+        <div class="beneficio">
+            <span>🛵</span>
+            <div>
+                <h3>Delivery Rápido</h3>
+                <p>É só pedir!</p>
+            </div>
+        </div>
+
+        <div class="beneficio">
+            <span>🛡️</span>
+            <div>
+                <h3>Pagamento Seguro</h3>
+                <p>Diversas formas de pagamento</p>
+            </div>
+        </div>
+
+        <div class="beneficio">
+            <span>♡</span>
+            <div>
+                <h3>Qualidade Garantida</h3>
+                <p>Ingredientes selecionados</p>
+            </div>
+        </div>
+
+        <div class="beneficio">
+            <span>★</span>
+            <div>
+                <h3>Atendimento Especial</h3>
+                <p>Sempre com você!</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+    <div class="container">
+
+        <div class="titulo-secao">
+            <h2>♡ Cardápio em Destaque ♡</h2>
+            <p>Os queridinhos da Doce Agrado!</p>
+        </div>
+
+        <div class="produtos">
+
+            <article class="produto">
+                <img src="imgs/x-burguer.jpeg" alt="X-Burguer">
+
+                <div class="produto-info">
+                    <h3>X-Burguer</h3>
+                    <p>Pão, salada, hambúrguer, queijo, ketchup e maionese.</p>
+
+                    <div class="produto-rodape">
+                        <strong>R$ 6,50</strong>
+                        <button onclick="adicionar('X-Burguer', 6.50)">
+                            + Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="imgs/x-frango.jpeg" alt="X-Frango">
+
+                <div class="produto-info">
+                    <h3>X-Frango</h3>
+                    <p>Pão, salada, frango desfiado, queijo, ketchup e maionese.</p>
+
+                    <div class="produto-rodape">
+                        <strong>R$ 6,50</strong>
+                        <button onclick="adicionar('X-Frango', 6.50)">
+                            + Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="imgs/xtudo.jpeg" alt="X-Tudo">
+
+                <div class="produto-info">
+                    <h3>X-Tudo</h3>
+                    <p>Pão, salada, hambúrguer, ovo, calabresa, queijo e maionese.</p>
+
+                    <div class="produto-rodape">
+                        <strong>R$ 12,00</strong>
+                        <button onclick="adicionar('X-Tudo', 12.00)">
+                            + Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="imgs/pasteisqueijo.jpeg" alt="Pastel de Queijo">
+
+                <div class="produto-info">
+                    <h3>Pastel de Queijo</h3>
+                    <p>Massa crocante com recheio de queijo.</p>
+
+                    <div class="produto-rodape">
+                        <strong>R$ 6,00</strong>
+                        <button onclick="adicionar('Pastel de Queijo', 6.00)">
+                            + Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="imgs/Bebidas.jpeg" alt="Refrigerante Lata">
+
+                <div class="produto-info">
+                    <h3>Refrigerante Lata</h3>
+                    <p>Coca-Cola, Guaraná ou Fanta.</p>
+
+                    <div class="produto-rodape">
+                        <strong>R$ 6,00</strong>
+                        <button onclick="adicionar('Refrigerante Lata', 6.00)">
+                            + Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="imgs/Doces.jpeg" alt="Brigadeiro">
+
+                <div class="produto-info">
+                    <h3>Brigadeiro</h3>
+                    <p>Doce e irresistível!</p>
+
+                    <div class="produto-rodape">
+                        <strong>R$ 3,00</strong>
+                        <button onclick="adicionar('Brigadeiro', 3.00)">
+                            + Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+
+    <section class="cardapio" id="hamburgueres">
+
+    <div class="container">
+
+        <div class="titulo-secao">
+            <h2>♡ Nossos Hambúrgueres ♡</h2>
+            <p>Preparados com carinho para matar sua fome!</p>
+        </div>
+
+        <div class="produtos">
+
+            <article class="produto">
+                <img src="imgs/x-burguer.jpeg" alt="X-Burguer">
+                <div class="produto-info">
+                    <h3>X-Burguer</h3>
+                    <p>Pão, hambúrguer, queijo, salada, ketchup e maionese.</p>
+                    <div class="produto-rodape">
+                        <strong>R$ 6,50</strong>
+                        <button onclick="adicionar('X-Burguer', 6.50)">
+                            <i class="fa-solid fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="imgs/x-frango.jpeg" alt="X-Frango">
+                <div class="produto-info">
+                    <h3>X-Frango</h3>
+                    <p>Pão, frango desfiado, queijo, salada e maionese.</p>
+                    <div class="produto-rodape">
+                        <strong>R$ 6,50</strong>
+                        <button onclick="adicionar('X-Frango', 6.50)">
+                            <i class="fa-solid fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="imgs/xtudo.jpeg" alt="X-Tudo">
+                <div class="produto-info">
+                    <h3>X-Tudo</h3>
+                    <p>Pão, hambúrguer, ovo, calabresa, queijo e salada.</p>
+                    <div class="produto-rodape">
+                        <strong>R$ 12,00</strong>
+                        <button onclick="adicionar('X-Tudo', 12.00)">
+                            <i class="fa-solid fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="imgs/x-bacon.jpeg" alt="X-Bacon">
+                <div class="produto-info">
+                    <h3>X-Bacon</h3>
+                    <p>Pão, hambúrguer, bacon, queijo e salada.</p>
+                    <div class="produto-rodape">
+                        <strong>R$ 15,00</strong>
+                        <button onclick="adicionar('X-Bacon', 15.00)">
+                            <i class="fa-solid fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="imgs/x-frango=especial.jpeg" alt="X-Frango Especial">
+                <div class="produto-info">
+                    <h3>X-Frango Especial</h3>
+                    <p>Frango preparado com ingredientes especiais e queijo.</p>
+                    <div class="produto-rodape">
+                        <strong>R$ 14,00</strong>
+                        <button onclick="adicionar('X-Frango Especial', 14.00)">
+                            <i class="fa-solid fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="imgs/x-cogumelo.jpeg" alt="X-Cogumelo">
+                <div class="produto-info">
+                    <h3>X-Cogumelo</h3>
+                    <p>Hambúrguer com cogumelos e queijo.</p>
+                    <div class="produto-rodape">
+                        <strong>R$ 16,00</strong>
+                        <button onclick="adicionar('X-Cogumelo', 16.00)">
+                            <i class="fa-solid fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+</section>
+
+<section class="cardapio" id="pasteis">
+
+    <div class="container">
+
+        <div class="titulo-secao">
+            <h2>♡ Nossos Pastéis ♡</h2>
+            <p>Pastéis preparados com muito carinho!</p>
+        </div>
+
+        <div class="produtos">
+
+            <article class="produto">
+                <img src="imgs/pasteisqueijo.jpeg" alt="Pastel de Queijo">
+
+                <div class="produto-info">
+                    <h3>Pastel de Queijo</h3>
+                    <p>Massa crocante com recheio de queijo.</p>
+
+                    <div class="produto-rodape">
+                        <strong>R$ 6,00</strong>
+                        <button onclick="adicionar('Pastel de Queijo', 6.00)">
+                            <i class="fa-solid fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="cardapio" id="doces">
+
+    <div class="container">
+
+        <div class="titulo-secao">
+            <h2>♡ Nossos Doces ♡</h2>
+            <p>Uma dose de carinho e doçura para seu dia!</p>
+        </div>
+
+        <div class="produtos">
+
+            <article class="produto">
+                <img src="imgs/Doces.jpeg" alt="Brigadeiro">
+
+                <div class="produto-info">
+                    <h3>Brigadeiro</h3>
+                    <p>Doce e irresistível!</p>
+
+                    <div class="produto-rodape">
+                        <strong>R$ 3,00</strong>
+                        <button onclick="adicionar('Brigadeiro', 3.00)">
+                            <i class="fa-solid fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- BOLOS POR ENCOMENDA -->
+<div class="bolos-encomenda">
+
+    <div class="titulo-secao">
+        <h2>♡ Bolos por Encomenda ♡</h2>
+        <p>Escolha seu bolo e monte do seu jeito!</p>
+    </div>
+
+    <div class="bolo-card">
+
+        <img src="imgs/bolos.jpeg" alt="Bolo personalizado">
+
+        <div class="bolo-info">
+
+            <h3>Monte seu bolo!</h3>
+            <p>Escolha o tamanho, a massa e os recheios.</p>
+
+            <label for="tamanho-bolo">Tamanho do bolo</label>
+            <select id="tamanho-bolo">
+                <option value="">Escolha o tamanho</option>
+                <option value="80">PP - 15 fatias - R$ 80,00</option>
+                <option value="150">P - 25 a 30 fatias - R$ 150,00</option>
+                <option value="200">M - 35 a 40 fatias - R$ 200,00</option>
+                <option value="280">G Quadrado - 45 a 50 fatias - R$ 280,00</option>
+            </select>
+
+            <label for="massa-bolo">Escolha a massa</label>
+            <select id="massa-bolo">
+                <option value="">Escolha a massa</option>
+                <option value="Chocolate">Chocolate</option>
+                <option value="Baunilha">Baunilha</option>
+            </select>
+
+            <label for="recheio-bolo-1">Primeiro recheio</label>
+            <select id="recheio-bolo-1">
+                <option value="">Escolha o recheio</option>
+                <option value="Brigadeiro 50% cacau">Brigadeiro 50% cacau</option>
+                <option value="Beijinho">Beijinho</option>
+                <option value="Ninho Trufado">Ninho Trufado</option>
+                <option value="Prestígio">Prestígio</option>
+            </select>
+
+            <label for="recheio-bolo-2">Segundo recheio (opcional)</label>
+            <select id="recheio-bolo-2">
+                <option value="">Nenhum segundo recheio</option>
+                <option value="Brigadeiro 50% cacau">Brigadeiro 50% cacau</option>
+                <option value="Beijinho">Beijinho</option>
+                <option value="Ninho Trufado">Ninho Trufado</option>
+                <option value="Prestígio">Prestígio</option>
+            </select>
+
+            <button type="button" onclick="adicionarBolo()">
+                <i class="fa-solid fa-cart-plus"></i>
+                Adicionar bolo ao carrinho
+            </button>
+
+        </div>
+    </div>
+
+</div>
+<section class="cardapio" id="bebidas">
+
+    <div class="container">
+
+        <div class="titulo-secao">
+            <h2>♡ Nossas Bebidas ♡</h2>
+            <p>Para acompanhar seu pedido!</p>
+        </div>
+
+        <div class="produtos">
+
+            <article class="produto">
+                <img src="imgs/Bebidas.jpeg" alt="Refrigerante Lata">
+
+                <div class="produto-info">
+                    <h3>Refrigerante Lata</h3>
+                    <p>Coca-Cola, Guaraná ou Fanta.</p>
+
+                    <div class="produto-rodape">
+                        <strong>R$ 6,00</strong>
+                        <button onclick="adicionar('Refrigerante Lata', 6.00)">
+                            <i class="fa-solid fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="cardapio" id="outros">
+
+    <div class="container">
+
+        <div class="titulo-secao">
+            <h2>♡ Outros Lanches ♡</h2>
+            <p>Mais delícias para deixar seu pedido completo!</p>
+        </div>
+
+        <div class="produtos">
+
+            <article class="produto">
+                <img src="imagens/batata.jpg" alt="Batata Frita">
+
+                <div class="produto-info">
+                    <h3>Batata Frita</h3>
+                    <p>Batatas crocantes e deliciosas!</p>
+
+                    <div class="produto-rodape">
+                        <strong>R$ 0,00</strong>
+                        <button onclick="adicionar('Batata Frita', 0.00)">
+                            <i class="fa-solid fa-cart-plus"></i> Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer class="rodape" id="sobre">
+
+    <div class="container rodape-conteudo">
+
+        <h2>♡ Doce Agrado ♡</h2>
+
+        <p>LANCHONETE E DOCERIA</p>
+
+        <p id="contato">
+            Feito com carinho para você!
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<script src="doce.js"></script>
+</body>
+</html>
+
+
+
+
