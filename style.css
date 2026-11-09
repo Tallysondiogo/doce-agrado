@@ -1280,3 +1280,327 @@ section[id] {
         padding: 20px;
     }
 }
+/* ==========================================
+   RESPONSIVIDADE PROFISSIONAL - DOCE AGRADO
+   CORREÇÕES MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+    /* CABEÇALHO */
+    .cabecalho {
+        padding: 12px 0;
+    }
+
+    .cabecalho-conteudo {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "logo carrinho"
+            "menu menu";
+        gap: 15px 10px;
+        align-items: center;
+        justify-content: initial;
+    }
+
+    .logo {
+        grid-area: logo;
+        justify-content: flex-start;
+    }
+
+    .logo img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .menu {
+        grid-area: menu;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 18px;
+        width: 100%;
+    }
+
+    .menu a {
+        font-size: 14px;
+        gap: 5px;
+    }
+
+    .menu a::after {
+        bottom: -5px;
+    }
+
+    .resumo-carrinho {
+        grid-area: carrinho;
+        min-width: 145px;
+        padding: 8px 12px;
+        gap: 8px;
+    }
+
+    /* BANNER */
+    .banner {
+        min-height: 470px;
+        background-position: 65% center;
+        position: relative;
+    }
+
+    .banner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 245, 248, 0.58);
+    }
+
+    .banner-conteudo {
+        position: relative;
+        z-index: 1;
+        width: 92%;
+        min-height: 470px;
+        justify-content: center;
+    }
+
+    .banner-texto {
+        width: 100%;
+        padding: 25px 0;
+        text-align: center;
+    }
+
+    .banner-texto h2 {
+        font-size: 35px;
+        margin-bottom: 0;
+    }
+
+    .banner-texto h1 {
+        font-size: 65px;
+        margin-bottom: 12px;
+    }
+
+    .banner-descricao {
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 330px;
+        margin: 12px auto;
+    }
+
+    /* BOTÕES */
+    .banner-botoes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .banner-botoes a {
+        width: 100%;
+        max-width: 280px;
+        padding: 14px 18px;
+        font-size: 14px;
+    }
+
+    /* DELIVERY */
+    .entrega {
+        justify-content: center;
+        text-align: left;
+        margin-top: 25px;
+    }
+
+    .moto {
+        font-size: 35px;
+    }
+
+    .entrega-texto strong {
+        font-size: 16px;
+    }
+
+    .entrega-texto p {
+        font-size: 13px;
+    }
+
+    /* CATEGORIAS */
+    .categorias {
+        padding: 20px 0;
+    }
+
+    .categorias-lista {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        padding: 0 5px;
+    }
+
+    .categoria {
+        min-height: 155px;
+        padding: 12px;
+        border-radius: 18px;
+    }
+
+    .categoria img {
+        width: 100%;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    .categoria h3 {
+        font-size: 15px;
+        line-height: 1.3;
+    }
+
+    /* BENEFÍCIOS - 2 POR LINHA */
+    .beneficios {
+        padding: 25px 0;
+    }
+
+    .beneficios-lista {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 12px;
+    }
+
+    .beneficio {
+        justify-content: flex-start;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .beneficio span {
+        font-size: 27px;
+        flex-shrink: 0;
+    }
+
+    .beneficio h3 {
+        font-size: 12px;
+        line-height: 1.3;
+    }
+
+    .beneficio p {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    /* CARDÁPIO */
+    .cardapio {
+        padding: 25px 0;
+    }
+
+    .titulo-secao {
+        margin-bottom: 20px;
+    }
+
+    .titulo-secao h2 {
+        font-size: 25px;
+    }
+
+    .titulo-secao p {
+        font-size: 13px;
+    }
+
+    /* PRODUTOS - 2 POR LINHA */
+    .produtos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .produto {
+        border-radius: 14px;
+    }
+
+    .produto > img {
+        height: 145px;
+        object-fit: cover;
+    }
+
+    .produto-info {
+        padding: 10px;
+    }
+
+    .produto h3 {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .produto p {
+        font-size: 11px;
+        line-height: 1.4;
+        min-height: 55px;
+    }
+
+    .produto-rodape {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .produto-rodape strong {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .produto-rodape button {
+        width: 100%;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    /* BOLOS */
+    .bolo-card {
+        padding: 12px;
+        gap: 15px;
+    }
+
+    /* RODAPÉ */
+    .rodape {
+        padding: 30px 15px;
+    }
+
+    .rodape h2 {
+        font-size: 25px;
+    }
+}
+
+/* CELULARES MUITO PEQUENOS */
+@media (max-width: 360px) {
+
+    .container {
+        width: 94%;
+    }
+
+    .menu {
+        gap: 12px;
+    }
+
+    .menu a {
+        font-size: 12px;
+    }
+
+    .banner-texto h2 {
+        font-size: 29px;
+    }
+
+    .banner-texto h1 {
+        font-size: 55px;
+    }
+
+    .categoria {
+        min-height: 135px;
+    }
+
+    .categoria img {
+        height: 85px;
+    }
+
+    .produto > img {
+        height: 120px;
+    }
+
+    .beneficio span {
+        font-size: 23px;
+    }
+
+    .beneficio h3 {
+        font-size: 11px;
+    }
+
+    .beneficio p {
+        font-size: 10px;
+    }
+}
