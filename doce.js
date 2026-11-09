@@ -11,10 +11,42 @@ let carrinho = [];
 ========================================= */
 
 function formatarMoeda(valor) {
-    return valor.toLocaleString("pt-BR", {
+
+    return Number(valor).toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL"
     });
+
+}
+
+
+/* =========================================
+   BUSCAR IMAGEM DO PRODUTO
+========================================= */
+
+function buscarImagemProduto(nome) {
+
+    const produtos = document.querySelectorAll(".produto");
+
+    for (const produto of produtos) {
+
+        const titulo = produto.querySelector("h3");
+        const imagem = produto.querySelector("img");
+
+        if (
+            titulo &&
+            imagem &&
+            titulo.textContent.trim() === nome
+        ) {
+
+            return imagem.getAttribute("src");
+
+        }
+
+    }
+
+    return "";
+
 }
 
 
@@ -31,10 +63,13 @@ function abrirCarrinho(event) {
     const painel = document.getElementById("painel-carrinho");
     const fundo = document.getElementById("fundo-carrinho");
 
+    if (!painel || !fundo) return;
+
     painel.classList.add("aberto");
     fundo.classList.add("aberto");
 
     document.body.style.overflow = "hidden";
+
 }
 
 
@@ -47,15 +82,21 @@ function fecharCarrinho() {
     const painel = document.getElementById("painel-carrinho");
     const fundo = document.getElementById("fundo-carrinho");
 
-    painel.classList.remove("aberto");
-    fundo.classList.remove("aberto");
+    if (painel) {
+        painel.classList.remove("aberto");
+    }
+
+    if (fundo) {
+        fundo.classList.remove("aberto");
+    }
 
     document.body.style.overflow = "";
+
 }
 
 
 /* =========================================
-   ATUALIZAR RESUMO DO CABEÇALHO E PAINEL
+   ATUALIZAR RESUMO DO CABEÇALHO
 ========================================= */
 
 function atualizarResumoCarrinho() {
@@ -69,13 +110,13 @@ function atualizarResumoCarrinho() {
     const quantidadePainel =
         document.getElementById("quantidade-painel");
 
-    // QUANTIDADE TOTAL
+    // QUANTIDADE
     const quantidade = carrinho.reduce(
         (total, item) => total + item.quantidade,
         0
     );
 
-    // VALOR TOTAL
+    // TOTAL
     const total = carrinho.reduce(
         (soma, item) => soma + item.preco * item.quantidade,
         0
@@ -83,19 +124,29 @@ function atualizarResumoCarrinho() {
 
     // CABEÇALHO
     if (quantidadeCabecalho) {
+
         quantidadeCabecalho.textContent =
-            quantidade + (quantidade === 1 ? " produto" : " produtos");
+            quantidade +
+            (quantidade === 1 ? " produto" : " produtos");
+
     }
 
     if (totalCabecalho) {
-        totalCabecalho.textContent = formatarMoeda(total);
+
+        totalCabecalho.textContent =
+            formatarMoeda(total);
+
     }
 
-    // PAINEL LATERAL
+    // PAINEL
     if (quantidadePainel) {
+
         quantidadePainel.textContent =
-            quantidade + (quantidade === 1 ? " item" : " itens");
+            quantidade +
+            (quantidade === 1 ? " item" : " itens");
+
     }
+
 }
 
 
@@ -115,10 +166,18 @@ function adicionar(nome, preco) {
 
     } else {
 
+        const imagem = buscarImagemProduto(nome);
+
         carrinho.push({
+
             nome: nome,
-            preco: preco,
-            quantidade: 1
+
+            preco: Number(preco),
+
+            quantidade: 1,
+
+            imagem: imagem
+
         });
 
     }
@@ -134,14 +193,26 @@ function adicionar(nome, preco) {
 
 function adicionarBolo() {
 
-    const tamanho = document.getElementById("tamanho-bolo").value;
-    const massa = document.getElementById("massa-bolo").value;
-    const recheio1 = document.getElementById("recheio-bolo-1").value;
-    const recheio2 = document.getElementById("recheio-bolo-2").value;
+    const tamanho =
+        document.getElementById("tamanho-bolo").value;
+
+    const massa =
+        document.getElementById("massa-bolo").value;
+
+    const recheio1 =
+        document.getElementById("recheio-bolo-1").value;
+
+    const recheio2 =
+        document.getElementById("recheio-bolo-2").value;
 
     if (!tamanho || !massa || !recheio1) {
-        alert("Escolha o tamanho, a massa e o primeiro recheio do bolo!");
+
+        alert(
+            "Escolha o tamanho, a massa e o primeiro recheio do bolo!"
+        );
+
         return;
+
     }
 
     const preco = Number(tamanho);
@@ -151,9 +222,15 @@ function adicionarBolo() {
         (recheio2 ? ` + ${recheio2}` : "");
 
     carrinho.push({
+
         nome: nome,
+
         preco: preco,
-        quantidade: 1
+
+        quantidade: 1,
+
+        imagem: buscarImagemProduto(nome)
+
     });
 
     atualizarCarrinho();
@@ -164,7 +241,7 @@ function adicionarBolo() {
 
 
 /* =========================================
-   ATUALIZAR PRODUTOS DA SACOLA
+   ATUALIZAR SACOLA
 ========================================= */
 
 function atualizarCarrinho() {
@@ -178,12 +255,25 @@ function atualizarCarrinho() {
     const finalizarPedido =
         document.getElementById("finalizar-pedido");
 
-    if (!itensCarrinho || !valorTotal || !finalizarPedido) {
-        atualizarResumoCarrinho();
-        return;
-    }
+    // TOTAL GERAL
+    const total = carrinho.reduce(
+        (soma, item) => soma + item.preco * item.quantidade,
+        0
+    );
 
-    let total = 0;
+    // ATUALIZAR CABEÇALHO
+    atualizarResumoCarrinho();
+
+    // SE NÃO EXISTIR SACOLA
+    if (!itensCarrinho) {
+
+        if (valorTotal) {
+            valorTotal.textContent = formatarMoeda(total);
+        }
+
+        return;
+
+    }
 
     // LIMPAR LISTA
     itensCarrinho.innerHTML = "";
@@ -192,79 +282,129 @@ function atualizarCarrinho() {
     if (carrinho.length === 0) {
 
         itensCarrinho.innerHTML = `
+
             <div class="carrinho-vazio">
-                <span class="sacola-vazia-icone">🛒</span>
+
+                <span class="sacola-vazia-icone">
+                    🛒
+                </span>
+
                 <h3>Sua sacola está vazia!</h3>
+
                 <p>Que tal escolher algo delicioso? 💕</p>
+
             </div>
+
         `;
 
-        valorTotal.textContent = formatarMoeda(0);
+        if (valorTotal) {
+            valorTotal.textContent = formatarMoeda(0);
+        }
 
-        finalizarPedido.disabled = true;
-
-        atualizarResumoCarrinho();
+        if (finalizarPedido) {
+            finalizarPedido.disabled = true;
+        }
 
         return;
+
     }
 
     // LISTAR PRODUTOS
     carrinho.forEach((item, index) => {
 
-        const subtotal = item.preco * item.quantidade;
+        const subtotal =
+            item.preco * item.quantidade;
 
-        total += subtotal;
-
-        itensCarrinho.innerHTML += `
-            <div class="item-carrinho">
-
-                <div class="item-carrinho-info">
-
-                    <h3>${item.nome}</h3>
-
-                    <p>${formatarMoeda(item.preco)} cada</p>
-
-                    <strong>${formatarMoeda(subtotal)}</strong>
-
+        // IMAGEM
+        const imagemHTML = item.imagem
+            ? `
+                <img
+                    src="${item.imagem}"
+                    alt="${item.nome}"
+                    class="item-carrinho-imagem"
+                >
+            `
+            : `
+                <div class="item-carrinho-imagem-placeholder">
+                    🍔
                 </div>
+            `;
+
+        // CRIAR CARD
+        const elemento = document.createElement("div");
+
+        elemento.className = "item-carrinho";
+
+        elemento.innerHTML = `
+
+            ${imagemHTML}
+
+            <div class="item-carrinho-info">
+
+                <h3>${item.nome}</h3>
+
+                <p>
+                    ${formatarMoeda(item.preco)} cada
+                </p>
+
+                <strong>
+                    ${formatarMoeda(subtotal)}
+                </strong>
 
                 <div class="controles-quantidade">
 
-                    <button type="button"
-                        onclick="alterarQuantidade(${index}, -1)">
+                    <button
+                        type="button"
+                        onclick="alterarQuantidade(${index}, -1)"
+                        aria-label="Diminuir quantidade"
+                    >
                         −
                     </button>
 
-                    <span>${item.quantidade}</span>
+                    <span>
+                        ${item.quantidade}
+                    </span>
 
-                    <button type="button"
-                        onclick="alterarQuantidade(${index}, 1)">
+                    <button
+                        type="button"
+                        onclick="alterarQuantidade(${index}, 1)"
+                        aria-label="Aumentar quantidade"
+                    >
                         +
                     </button>
 
                 </div>
 
-                <button type="button"
+                <button
+                    type="button"
                     class="remover-item"
-                    onclick="removerProduto(${index})">
-
+                    onclick="removerProduto(${index})"
+                >
                     🗑️ Remover
-
                 </button>
 
             </div>
+
         `;
+
+        itensCarrinho.appendChild(elemento);
 
     });
 
     // ATUALIZAR TOTAL
-    valorTotal.textContent = formatarMoeda(total);
+    if (valorTotal) {
+
+        valorTotal.textContent =
+            formatarMoeda(total);
+
+    }
 
     // LIBERAR FINALIZAÇÃO
-    finalizarPedido.disabled = false;
+    if (finalizarPedido) {
 
-    // ATUALIZAR CABEÇALHO
-    atualizarResumoCarrinho();
+        finalizarPedido.disabled = false;
+
+    }
 
 }
 
@@ -275,13 +415,11 @@ function atualizarCarrinho() {
 
 function alterarQuantidade(index, quantidade) {
 
-    if (!carrinho[index]) {
-        return;
-    }
+    if (!carrinho[index]) return;
 
     carrinho[index].quantidade += quantidade;
 
-    // REMOVER SE CHEGAR A ZERO
+    // REMOVER QUANDO CHEGAR A ZERO
     if (carrinho[index].quantidade <= 0) {
 
         carrinho.splice(index, 1);
@@ -299,9 +437,7 @@ function alterarQuantidade(index, quantidade) {
 
 function removerProduto(index) {
 
-    if (!carrinho[index]) {
-        return;
-    }
+    if (!carrinho[index]) return;
 
     carrinho.splice(index, 1);
 
@@ -329,23 +465,28 @@ function finalizarPedido() {
         0
     );
 
-    let mensagem = "🍔 *NOVO PEDIDO - DOCE AGRADO* 🍰\n\n";
+    let mensagem =
+        "🍔 *NOVO PEDIDO - DOCE AGRADO* 🍰\n\n";
 
     mensagem += "*🛍️ Produtos:*\n";
 
     carrinho.forEach(item => {
 
-        mensagem += `• ${item.quantidade}x ${item.nome}`;
+        mensagem +=
+            `• ${item.quantidade}x ${item.nome}`;
 
-        mensagem += ` - ${formatarMoeda(item.preco * item.quantidade)}\n`;
+        mensagem +=
+            ` - ${formatarMoeda(item.preco * item.quantidade)}\n`;
 
     });
 
-    mensagem += `\n*💰 Total: ${formatarMoeda(total)}*\n`;
+    mensagem +=
+        `\n*💰 Total: ${formatarMoeda(total)}*\n`;
 
-    mensagem += "\nObrigado pelo pedido! ❤️";
+    mensagem +=
+        "\nObrigado pelo pedido! ❤️";
 
-    // TROQUE PELO NÚMERO REAL DA LOJA
+    // NÚMERO DA LOJA
     const telefone = "5588999999999";
 
     const link =
