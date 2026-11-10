@@ -1868,3 +1868,52 @@ section[id] {
     font-size: 14px;
     color: #999;
 }
+
+/* ÍCONE DA SACOLA */
+
+.resumo-carrinho i {
+    font-size: 21px;
+    transition: 0.3s ease;
+}
+
+.resumo-carrinho:hover i {
+    transform: scale(1.1);
+}
+
+/* ÍCONE DE REMOVER */
+
+.remover-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    background: #fff0f5;
+    color: #d9005b;
+
+    border: 1px solid #f5c5d9;
+    border-radius: 8px;
+
+    padding: 7px 10px;
+    font-size: 12px;
+
+    transition: 0.3s ease;
+}
+
+.remover-item i {
+    font-size: 13px;
+}
+
+.remover-item:hover {
+    background: #d9005b;
+    color: white;
+    border-color: #d9005b;
+}
+
+/* SACOLA VAZIA */
+
+.sacola-vazia-icone {
+    display: block;
+    font-size: 45px;
+    color: #d9005b;
+    margin-bottom: 15px;
+}

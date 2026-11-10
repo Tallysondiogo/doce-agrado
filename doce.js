@@ -285,9 +285,9 @@ function atualizarCarrinho() {
 
             <div class="carrinho-vazio">
 
-                <span class="sacola-vazia-icone">
-                    🛒
-                </span>
+               <span class="sacola-vazia-icone">
+    <i class="fa-solid fa-bag-shopping"></i>
+</span>
 
                 <h3>Sua sacola está vazia!</h3>
 
@@ -380,7 +380,8 @@ function atualizarCarrinho() {
                     class="remover-item"
                     onclick="removerProduto(${index})"
                 >
-                    🗑️ Remover
+                    <i class="fa-solid fa-trash-can"></i>
+<span>Remover</span>
                 </button>
 
             </div>
