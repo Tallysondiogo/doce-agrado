@@ -454,6 +454,7 @@
 
         <div class="produtos">
 
+            <!-- PASTEL DE QUEIJO -->
             <article class="produto">
                 <img src="imgs/pasteisqueijo.jpeg" alt="Pastel de Queijo">
 
@@ -463,40 +464,105 @@
 
                     <div class="produto-rodape">
                         <strong>R$ 6,00</strong>
+
                         <button onclick="adicionar('Pastel de Queijo', 6.00)">
-                            <i class="fa-solid fa-cart-plus"></i> Adicionar
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Adicionar
                         </button>
                     </div>
                 </div>
             </article>
 
-        </div>
-
-    </div>
-
-</section>
-<section class="cardapio" id="doces">
-
-    <div class="container">
-
-        <div class="titulo-secao">
-            <h2>♡ Nossos Doces ♡</h2>
-            <p>Uma dose de carinho e doçura para seu dia!</p>
-        </div>
-
-        <div class="produtos">
-
+            <!-- PASTEL DE CARNE -->
             <article class="produto">
-                <img src="imgs/Doces.jpeg" alt="Brigadeiro">
+                <img src="imgs/pastelcarne.jpeg" alt="Pastel de Carne">
 
                 <div class="produto-info">
-                    <h3>Brigadeiro</h3>
-                    <p>Doce e irresistível!</p>
+                    <h3>Pastel de Carne</h3>
+                    <p>Carne moída temperada com muito sabor.</p>
 
                     <div class="produto-rodape">
-                        <strong>R$ 3,00</strong>
-                        <button onclick="adicionar('Brigadeiro', 3.00)">
-                            <i class="fa-solid fa-cart-plus"></i> Adicionar
+                        <strong>R$ 7,00</strong>
+
+                        <button onclick="adicionar('Pastel de Carne', 7.00)">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PASTEL DE FRANGO -->
+            <article class="produto">
+                <img src="imgs/pastelfrango.jpeg" alt="Pastel de Frango">
+
+                <div class="produto-info">
+                    <h3>Pastel de Frango</h3>
+                    <p>Frango desfiado e temperado.</p>
+
+                    <div class="produto-rodape">
+                        <strong>R$ 7,00</strong>
+
+                        <button onclick="adicionar('Pastel de Frango', 7.00)">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PASTEL DE FRANGO COM CATUPIRY -->
+            <article class="produto">
+                <img src="imgs/pastelfrangocatupiry.jpeg" alt="Pastel de Frango com Catupiry">
+
+                <div class="produto-info">
+                    <h3>Frango com Catupiry</h3>
+                    <p>Frango desfiado com cremoso Catupiry.</p>
+
+                    <div class="produto-rodape">
+                        <strong>R$ 8,00</strong>
+
+                        <button onclick="adicionar('Pastel de Frango com Catupiry', 8.00)">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PASTEL DE PRESUNTO E QUEIJO -->
+            <article class="produto">
+                <img src="imgs/pastelpresuntoqueijo.jpeg" alt="Pastel de Presunto e Queijo">
+
+                <div class="produto-info">
+                    <h3>Presunto e Queijo</h3>
+                    <p>Presunto e queijo derretido.</p>
+
+                    <div class="produto-rodape">
+                        <strong>R$ 7,00</strong>
+
+                        <button onclick="adicionar('Pastel de Presunto e Queijo', 7.00)">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PASTEL DE PIZZA -->
+            <article class="produto">
+                <img src="imgs/pastelpizza.jpeg" alt="Pastel de Pizza">
+
+                <div class="produto-info">
+                    <h3>Pastel de Pizza</h3>
+                    <p>Queijo, presunto, tomate e orégano.</p>
+
+                    <div class="produto-rodape">
+                        <strong>R$ 7,00</strong>
+
+                        <button onclick="adicionar('Pastel de Pizza', 7.00)">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Adicionar
                         </button>
                     </div>
                 </div>
@@ -507,98 +573,190 @@
     </div>
 
 </section>
-<!-- BOLOS POR ENCOMENDA -->
-<div class="bolos-encomenda">
+<section class="cardapio container" id="doces">
 
     <div class="titulo-secao">
-        <h2>♡ Bolos por Encomenda ♡</h2>
-        <p>Escolha seu bolo e monte do seu jeito!</p>
+        <span>♡ Feitos com carinho ♡</span>
+        <h2>Nossos Doces</h2>
+        <p>Um docinho para deixar seu dia mais feliz!</p>
     </div>
 
-    <div class="bolo-card">
+    <div class="produtos">
 
-        <img src="imgs/bolos.jpeg" alt="Bolo personalizado">
-
-        <div class="bolo-info">
-
-            <h3>Monte seu bolo!</h3>
-            <p>Escolha o tamanho, a massa e os recheios.</p>
-
-            <label for="tamanho-bolo">Tamanho do bolo</label>
-            <select id="tamanho-bolo">
-                <option value="">Escolha o tamanho</option>
-                <option value="80">PP - 15 fatias - R$ 80,00</option>
-                <option value="150">P - 25 a 30 fatias - R$ 150,00</option>
-                <option value="200">M - 35 a 40 fatias - R$ 200,00</option>
-                <option value="280">G Quadrado - 45 a 50 fatias - R$ 280,00</option>
-            </select>
-
-            <label for="massa-bolo">Escolha a massa</label>
-            <select id="massa-bolo">
-                <option value="">Escolha a massa</option>
-                <option value="Chocolate">Chocolate</option>
-                <option value="Baunilha">Baunilha</option>
-            </select>
-
-            <label for="recheio-bolo-1">Primeiro recheio</label>
-            <select id="recheio-bolo-1">
-                <option value="">Escolha o recheio</option>
-                <option value="Brigadeiro 50% cacau">Brigadeiro 50% cacau</option>
-                <option value="Beijinho">Beijinho</option>
-                <option value="Ninho Trufado">Ninho Trufado</option>
-                <option value="Prestígio">Prestígio</option>
-            </select>
-
-            <label for="recheio-bolo-2">Segundo recheio (opcional)</label>
-            <select id="recheio-bolo-2">
-                <option value="">Nenhum segundo recheio</option>
-                <option value="Brigadeiro 50% cacau">Brigadeiro 50% cacau</option>
-                <option value="Beijinho">Beijinho</option>
-                <option value="Ninho Trufado">Ninho Trufado</option>
-                <option value="Prestígio">Prestígio</option>
-            </select>
-
-            <button type="button" onclick="adicionarBolo()">
-                <i class="fa-solid fa-cart-plus"></i>
-                Adicionar bolo ao carrinho
-            </button>
-
-        </div>
-    </div>
-
-</div>
-<section class="cardapio" id="bebidas">
-
-    <div class="container">
-
-        <div class="titulo-secao">
-            <h2>♡ Nossas Bebidas ♡</h2>
-            <p>Para acompanhar seu pedido!</p>
-        </div>
-
-        <div class="produtos">
-
-            <article class="produto">
-                <img src="imgs/Bebidas.jpeg" alt="Refrigerante Lata">
-
-                <div class="produto-info">
-                    <h3>Refrigerante Lata</h3>
-                    <p>Coca-Cola, Guaraná ou Fanta.</p>
-
-                    <div class="produto-rodape">
-                        <strong>R$ 6,00</strong>
-                        <button onclick="adicionar('Refrigerante Lata', 6.00)">
-                            <i class="fa-solid fa-cart-plus"></i> Adicionar
-                        </button>
-                    </div>
+        <article class="produto">
+            <img src="imgs/Doces.jpeg" alt="Brigadeiro">
+            <div class="produto-info">
+                <h3>Brigadeiro</h3>
+                <p>Brigadeiro tradicional, preparado com muito carinho.</p>
+                <div class="produto-rodape">
+                    <strong>R$ 3,00</strong>
+                    <button onclick="adicionar('Brigadeiro', 3.00)">
+                        <i class="fa-solid fa-cart-plus"></i> Adicionar
+                    </button>
                 </div>
-            </article>
+            </div>
+        </article>
 
-        </div>
+        <article class="produto">
+            <img src="imgs/beijinho.jpeg" alt="Beijinho">
+            <div class="produto-info">
+                <h3>Beijinho</h3>
+                <p>Delicioso beijinho de coco com sabor especial.</p>
+                <div class="produto-rodape">
+                    <strong>R$ 3,00</strong>
+                    <button onclick="adicionar('Beijinho', 3.00)">
+                        <i class="fa-solid fa-cart-plus"></i> Adicionar
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <article class="produto">
+            <img src="imgs/brownie.jpeg" alt="Brownie">
+            <div class="produto-info">
+                <h3>Brownie</h3>
+                <p>Brownie de chocolate, macio e irresistível.</p>
+                <div class="produto-rodape">
+                    <strong>R$ 5,00</strong>
+                    <button onclick="adicionar('Brownie', 5.00)">
+                        <i class="fa-solid fa-cart-plus"></i> Adicionar
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <article class="produto">
+            <img src="imgs/bolo-de-pote.jpeg" alt="Bolo de pote">
+            <div class="produto-info">
+                <h3>Bolo de Pote</h3>
+                <p>Bolo fofinho com recheio cremoso.</p>
+                <div class="produto-rodape">
+                    <strong>R$ 8,00</strong>
+                    <button onclick="adicionar('Bolo de Pote', 8.00)">
+                        <i class="fa-solid fa-cart-plus"></i> Adicionar
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <article class="produto">
+            <img src="imgs/pudim.jpeg" alt="Pudim">
+            <div class="produto-info">
+                <h3>Pudim</h3>
+                <p>Pudim cremoso com deliciosa calda de caramelo.</p>
+                <div class="produto-rodape">
+                    <strong>R$ 5,00</strong>
+                    <button onclick="adicionar('Pudim', 5.00)">
+                        <i class="fa-solid fa-cart-plus"></i> Adicionar
+                    </button>
+                </div>
+            </div>
+        </article>
 
     </div>
+<section class="cardapio container" id="bebidas">
 
+    <div class="titulo-secao">
+        <span>♡ Para acompanhar ♡</span>
+        <h2>Nossas Bebidas</h2>
+        <p>Refresque seu dia com nossas bebidas!</p>
+    </div>
+
+    <div class="produtos">
+
+        <!-- Coca-Cola 350ml -->
+        <article class="produto">
+            <img src="imgs/coca-cola.jpeg" alt="Coca-Cola 350ml">
+            <div class="produto-info">
+                <h3>Coca-Cola 350ml</h3>
+                <p>Refrigerante geladinho em lata.</p>
+                <div class="produto-rodape">
+                    <strong>R$ 6,00</strong>
+                    <button onclick="adicionar('Coca-Cola 350ml', 6)">
+                        <i class="fa-solid fa-cart-plus"></i> Adicionar
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Coca-Cola 1 litro -->
+        <article class="produto">
+            <img src="imgs/cocacola1l.jpeg" alt="Coca-Cola 1 litro">
+            <div class="produto-info">
+                <h3>Coca-Cola 1 Litro</h3>
+                <p>Refrigerante ideal para compartilhar.</p>
+                <div class="produto-rodape">
+                    <strong>R$ 10,00</strong>
+                    <button onclick="adicionar('Coca-Cola 1 Litro', 10)">
+                        <i class="fa-solid fa-cart-plus"></i> Adicionar
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Guaraná 350ml -->
+        <article class="produto">
+            <img src="imgs/guarana.jpeg" alt="Guaraná 350ml">
+            <div class="produto-info">
+                <h3>Guaraná 350ml</h3>
+                <p>Guaraná Antarctica em lata.</p>
+                <div class="produto-rodape">
+                    <strong>R$ 6,00</strong>
+                    <button onclick="adicionar('Guaraná 350ml', 6)">
+                        <i class="fa-solid fa-cart-plus"></i> Adicionar
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Guaraná 1 litro -->
+        <article class="produto">
+            <img src="imgs/guarana1l.jpeg" alt="Guaraná 1 litro">
+            <div class="produto-info">
+                <h3>Guaraná 1 Litro</h3>
+                <p>Guaraná Antarctica para compartilhar.</p>
+                <div class="produto-rodape">
+                    <strong>R$ 10,00</strong>
+                    <button onclick="adicionar('Guaraná 1 Litro', 10)">
+                        <i class="fa-solid fa-cart-plus"></i> Adicionar
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Fanta 350ml -->
+        <article class="produto">
+            <img src="imgs/fanta.jpeg" alt="Fanta 350ml">
+            <div class="produto-info">
+                <h3>Fanta 350ml</h3>
+                <p>Fanta Laranja em lata.</p>
+                <div class="produto-rodape">
+                    <strong>R$ 6,00</strong>
+                    <button onclick="adicionar('Fanta 350ml', 6)">
+                        <i class="fa-solid fa-cart-plus"></i> Adicionar
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Fanta 1 litro -->
+        <article class="produto">
+            <img src="imgs/fanta1l.jpeg" alt="Fanta 1 litro">
+            <div class="produto-info">
+                <h3>Fanta 1 Litro</h3>
+                <p>Fanta Laranja para compartilhar.</p>
+                <div class="produto-rodape">
+                    <strong>R$ 10,00</strong>
+                    <button onclick="adicionar('Fanta 1 Litro', 10)">
+                        <i class="fa-solid fa-cart-plus"></i> Adicionar
+                    </button>
+                </div>
+            </div>
+        </article>
+
+    </div>
 </section>
+
 
 <section class="cardapio" id="outros">
 
